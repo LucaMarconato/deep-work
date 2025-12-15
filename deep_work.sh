@@ -64,7 +64,7 @@ tmux select-pane -t "$SESSION_NAME:0.1"
 
 # Embedded timer script (from timer.py)
 START_TIME=$(date +"%I:%M:%S")
-tmux send-keys -t "$SESSION_NAME:0.1" "termdown -s --font-charset \" .oO#@\" \"$TIME_STRING\" && say 'the countdown is over!' && tmux kill-session -t \"$SESSION_NAME\" " Enter
+tmux send-keys -t "$SESSION_NAME:0.1" "termdown -s --font \"clr8x8\" --font-size 20 \"$TIME_STRING\" && say 'the countdown is over!' && tmux kill-session -t \"$SESSION_NAME\" " Enter
 
 # Attach to the session
 tmux attach-session -t "$SESSION_NAME"
