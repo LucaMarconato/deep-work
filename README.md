@@ -1,6 +1,7 @@
 # Deep Work Timer
 
 ![screenshot](screenshot.png)
+![example](exapmle.jpg)
 
 ## Usage
 
