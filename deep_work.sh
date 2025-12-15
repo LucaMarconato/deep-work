@@ -23,7 +23,7 @@ fi
 # Check if termdown is installed
 if ! command -v termdown &> /dev/null; then
     echo "Error: termdown is required but not installed."
-    echo "Install it with: pip install termdown"
+    echo "Install it with: pip install git+https://github.com/trehn/termdown"
     exit 1
 fi
 
@@ -64,7 +64,7 @@ tmux select-pane -t "$SESSION_NAME:0.1"
 
 # Embedded timer script (from timer.py)
 START_TIME=$(date +"%I:%M:%S")
-tmux send-keys -t "$SESSION_NAME:0.1" "termdown -s $TIME_STRING && say 'the countdown is over!' && python3 -c \"import pushover_notification; pushover_notification.send('($START_TIME)')\" ; tmux kill-session -t $SESSION_NAME" Enter
+tmux send-keys -t "$SESSION_NAME:0.1" "termdown -s --font-charset \" .oO#@\" \"$TIME_STRING\" && say 'the countdown is over!' && tmux kill-session -t \"$SESSION_NAME\" " Enter
 
 # Attach to the session
 tmux attach-session -t "$SESSION_NAME"
